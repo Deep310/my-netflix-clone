@@ -1,0 +1,38 @@
+.row{
+    /* stay a bit far from the left side */
+    margin-left: 20px;
+}
+
+.row__posters{
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 20px;
+}
+
+.row__posters::-webkit-scrollbar{
+    /* don't show me scroll bar, in any browser */
+    display: none;
+}
+
+.row__poster{
+    width: 100%;
+    object-fit: contain;
+    max-height: 100px;
+    transition: transform 400ms;
+    margin-right: 10px;
+}
+
+/* when I hover over a movie img, I want it to grow a bit */
+.row__poster:hover{
+    transform: scale(1.08);
+}
+
+/* only for large rows */
+.row__posterLarge{
+    max-height: 250px;
+}
+
+.row__posterLarge:hover{
+    transform: scale(1.09);
+}
