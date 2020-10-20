@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+#hide api key
+/requests.js
+
 # production
 /build
 
