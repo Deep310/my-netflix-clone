@@ -41,23 +41,27 @@ function Banner() {
             }}
         >
             <div className="banner__contents">
-            {/* movie title */}
-            <h1 className="banner__title">
-                {movie?.title || movie?.name || movie?.original_name}
-            </h1>
+                {/* movie title */}
+                <h1 className="banner__title">
+                    {movie?.title || movie?.name || movie?.original_name}
+                </h1>
 
-            {/* buttons on the banner */}
-            <div className="banner__buttons">
-                <button className="banner__button">Play</button>
-                <button className="banner__button">My List</button>
+                {/* buttons on the banner */}
+                <div className="banner__buttons">
+                    <button className="banner__button">Play</button>
+                    <button className="banner__button">My List</button>
+                </div>
+            
+                {/* synopsis of the movie - show it trucated */}
+                <h1 className="banner__description">
+                    {truncate(movie?.overview, 150)}
+                </h1>
             </div>
-        
-            {/* synopsis of the movie - show it trucated */}
-            <h1 className="banner__description">
-                {truncate(movie?.overview, 150)}
-            </h1>
 
-            </div>
+            {/* only purpose of this div is to add more styling and that gentle fade to posters */}
+            <div className="banner--fadeBottom" />
+
+
         </header>
     )
 }

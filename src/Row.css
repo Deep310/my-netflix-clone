@@ -1,6 +1,7 @@
 .row{
     /* stay a bit far from the left side */
     margin-left: 20px;
+    color: white;
 }
 
 .row__posters{
@@ -19,8 +20,8 @@
     width: 100%;
     object-fit: contain;
     max-height: 100px;
-    transition: transform 400ms;
-    margin-right: 10px;
+    transition: transform 300ms;
+    margin-right: 15px;
 }
 
 /* when I hover over a movie img, I want it to grow a bit */
