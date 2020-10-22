@@ -6,8 +6,6 @@ import movieTrailer from 'movie-trailer';
 
 // URL to display images of movies
 const base_URL = "https://image.tmdb.org/t/p/original/";
-const APIKEY = "d7226dd6be04f16c198179681d0ca6d2";
-
 
 function Row({ title, fetchURL, isLargeRow }) {
 
@@ -19,7 +17,7 @@ function Row({ title, fetchURL, isLargeRow }) {
         // if [] are empty, run once when the row loads, and don't run again
         async function fetchData(){
             const request = await axios.get(fetchURL);
-                
+            console.log(request.data.results);
             setMovies(request.data.results);
             return request;
         }
@@ -40,29 +38,27 @@ function Row({ title, fetchURL, isLargeRow }) {
             setTrailerURL("");
         }
         else{
-            console.log(movie)
-
             {/*fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${APIKEY}&language=en-US`)
             .then(response => response.json())
             .then(data => console.log(data))
             .then(console.log(2))*/}
-            
+             
             movieTrailer(movie?.name || "")
             .then((url) => {
                 const urlParams = new URLSearchParams(new URL(url).search);
                 console.log(urlParams);
                 setTrailerURL(urlParams.get("v"));
             })
-
             .catch( (error) => console.log(error) );
         }
+
     }
 
     return (
         <div className="row">
-            <h2>{title}</h2>
+            <h2 className="row__title">{title}</h2>
 
-            <div className="row__posters">
+            <div className="row__posters" id="hi">
                 {movies.map(movie => (
                     <img 
                         key={movie.id} 
@@ -73,6 +69,7 @@ function Row({ title, fetchURL, isLargeRow }) {
                     />
                 ))}
             </div>
+            <button type="button" >click me</button>
 
             {trailerURL && <YouTube videoId={trailerURL} opts={opts} />}
 

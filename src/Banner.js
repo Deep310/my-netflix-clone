@@ -22,8 +22,6 @@ function Banner() {
         }
         fetchData();
     }, []);
-
-    console.log(movie);
     
     // function to truncate the movie description
     function truncate(str, n){
@@ -66,4 +64,4 @@ function Banner() {
     )
 }
 
-export default Banner
+export default Banner;
