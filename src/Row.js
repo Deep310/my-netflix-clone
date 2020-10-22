@@ -69,8 +69,7 @@ function Row({ title, fetchURL, isLargeRow }) {
                     />
                 ))}
             </div>
-            <button type="button" >click me</button>
-
+            
             {trailerURL && <YouTube videoId={trailerURL} opts={opts} />}
 
         </div>
